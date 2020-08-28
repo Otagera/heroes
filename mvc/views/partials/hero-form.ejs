@@ -4,7 +4,7 @@
     <form action="/create-hero" method="post" autocomplete="off">
 <% } %>
     
-    <%
+    <%console.log(hero);
         if(locals.hero) {
             var n = hero.name;
             var d = hero.description;
@@ -27,21 +27,21 @@
         </div>
         
         
-        <%# if(squads.length > 0) { %>
-            <!-- <div class="">
+        <% if(squads.length > 0) { %>
+            <div class="">
                 <label>Squad</label>
                 <select name="squad">
-                    <option value="">None</option>
-                    <%# for(let i = 0; i < squads.length; i++) { %>
-                        <%# if(n && squads[i].name === hero.squad) { %>
-                            <option selected="selected" value="<%#= squads[i].name %>"><%#= squads[i].name %></option>
-                        <%# } else { %>
-                            <option value="<%#= squads[i].name %>"><%#= squads[i].name %></option>
-                        <%# } %>
-                    <%# } %>
+                    <option value="a">None</option>
+                    <% for(let i = 0; i < squads.length; i++) { %>
+                        <% if(n && squads[i].name === hero.squad) { %>
+                            <option selected="selected" value="<%= squads[i].name %>"><%= squads[i].name %></option>
+                        <% } else { %>
+                            <option value="<%= squads[i].name %>"><%= squads[i].name %></option>
+                        <% } %>
+                    <% } %>
                 </select>    
-            </div> -->
-        <%# } %>
+            </div>
+        <% } %>
     </div>
     
     <div class="input-group">

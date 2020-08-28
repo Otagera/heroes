@@ -5,7 +5,7 @@ const statsSchema = new mongoose.Schema({
 	perception:   { type: Number, default: 30, min: 0, max: 100 },
 	endurance: 	  { type: Number, default: 30, min: 0, max: 100 },
 	charisma: 	  { type: Number, default: 30, min: 0, max: 100 },
-	intelligance: { type: Number, default: 30, min: 0, max: 100 },
+	intelligence: { type: Number, default: 30, min: 0, max: 100 },
 	agility: 	  { type: Number, default: 30, min: 0, max: 100 },
 	luck: 	  { type: Number, default: 30, min: 0, max: 100 },
 });
@@ -14,11 +14,14 @@ const heroSchema = new mongoose.Schema({
 	name: 		 { type: String, required: true, unique: true },
 	description: { type: String, required: true },
 	origin: 	 { type: String, default: "Unknown" },
-	stats: 		 { type: statsSchema, required: true }
+	stats: 		 { type: statsSchema, required: true },
+	squad: String
 });
 
 const squadSchema = new mongoose.Schema({
-	name: { type: String, required: true, unique: true }
+	name: { type: String, required: true, unique: true },
+	hq: String
 });
 
+mongoose.model('Squad', squadSchema);
 mongoose.model('Hero', heroSchema);
